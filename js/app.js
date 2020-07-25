@@ -3,7 +3,6 @@ console.log("Bienvenidos al juego")
 
 let playerOne = true
 
-let playerTwo = false
 
 let countSignal = (signal) => {
     let item = document.querySelectorAll("li.item")
@@ -24,15 +23,23 @@ for (let index = 0; index < Rows; index++) {
     }
 }
 console.clear()
-grid.forEach(element => {
-    console.log(element)
-});
-
-createGrid(grid, document.body)
-
-let setPlayer = (player) => {
-    return player = !player 
-}
 
 
-console.log(setPlayer(playerOne))
+let items = createGrid(grid, document.body)
+
+items.forEach(item => {
+    item.addEventListener("click",function (e) {
+        e.preventDefault()
+        console.log(playerOne)
+        if(playerOne){
+            playerOne = false
+            e.currentTarget.classList.add("circle")
+            e.currentTarget.setAttribute("data-signal","circle")
+        }else{
+            e.currentTarget.classList.add("cross")
+            e.currentTarget.setAttribute("data-signal","cross")
+            playerOne = true
+        }
+    })
+})
+

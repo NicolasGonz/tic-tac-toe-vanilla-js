@@ -5,3 +5,81 @@
     font-family: Arial, Helvetica, sans-serif;
     
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    background-color: royalblue;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+ul{
+    list-style: none;
+    padding: .5rem;
+    background-color: snow;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: .5rem;
+    width: 75vh;
+    height: 75vh;
+}
+
+li{
+    background-color: royalblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    position: relative;
+}
+
+.cross::after{
+    position: absolute;
+    content: "";
+    width: .25rem;
+    height: calc(100% - .25rem);
+    background-color: snow;
+    transform: rotate(45deg);
+}
+
+.cross::before{
+    position: absolute;
+    content: "";
+    width: .25rem;
+    height: calc(100% - .25rem);
+    background-color: snow;
+    transform: rotate(-45deg);
+}
+
+.circle::after{
+    position: absolute;
+    content: "";
+    width: calc(100% - .5rem);
+    height: calc(100% - .5rem);
+    border-radius: 50%;
+    background-color: snow;
+}
+
+.circle::before{
+    position: absolute;
+    content: "";
+    width: calc(100% - .5rem);
+    height: calc(100% - .5rem);
+    border-radius: 50%;
+    background-color: royalblue;
+    transform: scale(.75);
+    z-index: 1;
+}
+
+
+@media only screen and (min-width:768px){
+    ul{
+        width: 50vh;
+        height: 50vh;
+    }
+}

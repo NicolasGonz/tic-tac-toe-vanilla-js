@@ -10,4 +10,6 @@ export let createGrid = (grid, container) => {
     })
 
     container.appendChild(list)
+
+    return Array.from(list.children)
 }  
